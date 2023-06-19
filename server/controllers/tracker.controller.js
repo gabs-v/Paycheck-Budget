@@ -1,18 +1,24 @@
-const Expense = require('../models/tracker.model')
+const Expense = require('../models/tracker.model');
 
+const findAllExpenses = (req, res) => {
+    Expense.find()
+    .then((allExpenses) => {
+        res.json({ allExpenses });
+    })
+    .catch((err) => console.log(err));
+};
+
+const newExpenseEntry = (req, res) => {
+    Expense.create(req.body)
+    .then(newExpense => {
+        res.json({ newExpense });
+    })
+    .catch((err) => console.log(err));
+};
 
 module.exports = {
-    findAllExpenses: (req,res) =>{
-        Expense.find({})
-        .then((allExpenses) => {
-            res.json({expenses: allExpenses})
-        })
-        .catch((err) => console.log(err))
-    },
-    newExpenseEntry: (res, req) => {
-        Expense.create(req.body)
-        .then(newExpense => {
-            res.json({expense: newExpense})
-        })
-    }
-}
+    findAllExpenses,
+    newExpenseEntry
+};
+
+

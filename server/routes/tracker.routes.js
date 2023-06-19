@@ -1,6 +1,6 @@
-const ExpenseController = require('../controllers/tracker.controller')
+const expenseController = require('../controllers/tracker.controller')
 
 module.exports = (app) => {
-    app.get('/api/expenses', ExpenseController.findAllExpenses)
-    app.post('/api/expenses', ExpenseController.newExpenseEntry)
+    app.get('/api/expenses', expenseController.findAllExpenses)
+    app.post('/api/expenses', expenseController.newExpenseEntry)
 }

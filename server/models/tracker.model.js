@@ -17,6 +17,7 @@ const TrackerSchema = new mongoose.Schema({
     }
 })
 
-const Expense = mongoose.model('Expense', TrackerSchema)
+const Expense = mongoose.model("Expense", TrackerSchema)
+module.exports = Expense
 //mongoose.model() is a method who's job is to take the blueprint object and then create the 
 //database collection out of the model :) 
